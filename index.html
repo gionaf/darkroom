@@ -267,7 +267,22 @@ $(document).ready(function(){
 	$masks.appendTo($darkroom);
 	$masks_lr.height(cursor_h);
 	
+	/* --- let's make sure the preloading screen doesn't disappear too fast --- */
+	var min_wait = 2500, // display the preload for at least 2.5 seconds
+		time_ready = new Date(),
+		waited_enough = false;
+	setTimeout(function(){ waited_enough = true; },min_wait);
 	$window.on('load',function(){
+		if(waited_enough) __init();
+		else{
+			var time_now = new Date(),
+				time_left = min_wait - (time_now - time_ready);
+			setTimeout(__init,(time_left>0) ? time_left : 250);
+		}
+	});
+	
+	/* --- the real meat --- */
+	function __init(){
 		
 		$html.addClass('has-darkroom');
 		
@@ -304,8 +319,7 @@ $(document).ready(function(){
 		}).on('mouseleave',function(){
 			$darkroom_cursor.removeClass('darkroom-cursor-targeting');
 		});
-		
-	});
+	}
 	
 });
 </script>
