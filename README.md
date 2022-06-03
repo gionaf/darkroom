@@ -9,7 +9,7 @@ The whole browser window is covered in darkness.
 You can explore it only through the cone of light of a match.  
 When you'll reach an "hidden target", the light-cone will expand.  
 
-In the [demo](http://gionaf.com/playground/darkroom/) there are 6 hidden targets,  
+In the [demo](https://giona.net/playground/darkroom/) there are 6 hidden targets,  
 can you find them all?
 
 ===
